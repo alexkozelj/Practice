@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <title>Clicker</title>
+   <meta name="description" content="">
+   <style></style>
+</head>
+
+<body>
+   <button>Click!</button>
+
+   <script>
+      // const counter = {
+      //    cnt: 0,
+
+      //    inc: function () {
+      //       this.cnt++;
+      //       console.log(this.cnt);
+      //    }
+      // };
+
+      // const button = document.getElementsByTagName('button')[0];
+      // button.addEventListener('click', () => counter.inc());
+
+      // Reverse a string
+      const string = "hello world";
+
+      const reverse = (str) => {
+         return str.split("").reverse().join("");
+      }
+
+      // fizz buzz
+      // for (let i = 1; i <= 100; i++) {
+      //    (i % 3 === 0 && i % 5 === 0) ? console.log("FizzBuzz") :
+      //       (i % 3 === 0) ? console.log("Fizz") :
+      //          (i % 5 === 0) ? console.log("Buzz") : console.log(i);
+      // }
+
+      // console.log(reverse(string));
+
+      // Palindrom
+      const palindrom = "ana voli Milovana";
+
+      const palindromCheck = (str) => {
+         const bind = str.toLowerCase().replace(/ /g, "")
+         const reverse = bind.split("").reverse().join("");
+         bind === reverse ? console.log(true) : console.log(false);
+      }
+
+      palindromCheck(palindrom);
+
+      // fibernachi sequence
+
+      // fibSeq = (num) => {
+      //    for (let i = num; i > 0; i--) {
+      //       i <= 2 ? 
+      // }
+
+      // const wait = (ms) => {
+      //    return new Promise ((res) => {
+      //       setTimeout(() => {
+      //          res("inside a promise");
+      //       },ms)
+      //    })
+      // }
+
+      // wait(2000)
+      // .then(res => {
+      //    console.log("ete me");
+      //    console.log(res);
+      // });
+      const whateverFunction = () => {
+         setTimeout(() => {
+            console.log("whatever function doing something");
+         }, 1000)
+      };
+
+      const anotherFunction = () => {
+         setTimeout(() => {
+            console.log("another funciton is doing something");
+         }, 2000)
+      }
+
+      const timeOutP = (time, func) => {
+         return new Promise((res, rej) => {
+            setTimeout(() => {
+               res(func());
+            }, time);
+         })
+      };
+
+      timeOutP(2000, () => {
+         setTimeout(() => {
+            whateverFunction();
+            console.log("deep timeout 1. func");
+         },1000)
+      })
+         .then(timeOutP(6000, () => {
+            setTimeout(() => {
+               anotherFunction()
+               console.log("deep timeout 2. func");
+            },1000)
+         }));
+
+
+
+
+
+
+   </script>
+</body>
+
+</html>
